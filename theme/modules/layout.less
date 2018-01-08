@@ -1,0 +1,138 @@
+@import "grid-float.less";
+@import "grid-helpers.less";
+
+.site-logo-text {
+    .column(2);
+}
+
+.navbar-2 {
+    .column(12);
+}
+
+.flash {
+    .column(24);
+}
+
+.inner-wrap {
+    @gridImage: "../img/grid950x24x30x10-nomargin-inverted.png";
+    @gridWidth: 70%;
+    .container(@gridWidth);
+    html.vgrid & {
+        .showGrid(@gridWidth, @gridImage);
+    }
+
+    &.inner-wrap-footer,
+    &.inner-wrap-header {
+        @gridWidth: 100%;
+        .container(@gridWidth);
+        html.vgrid & {
+            .showGrid(@gridWidth, @gridImage);
+        }
+
+    }
+}
+
+.outer-wrap-header,
+.footer-column-wrapper,
+.outer-wrap-main {
+    margin-bottom: 0;
+}
+
+.footer-column-wrapper {
+    .clearfix();
+}
+
+.row {
+    .row();
+}
+
+
+.sidebar-left,
+.sidebar-right {
+    .column(@columns/4);
+}
+
+.main {
+    .column(@columns);
+    .push(0);
+
+    &.has-sidebar-left {
+        .column(@columns - (@columns/4));
+        // .push(@push / 2);
+    }
+
+    &.has-sidebar-right {
+        .column(@columns - (@columns/4));
+        .push(0);
+    }
+
+    &.has-sidebar-left.has-sidebar-right {
+        .column(@columns - (@columns/2));
+        .push(0);
+    }
+}
+
+
+.content {
+    .column(24);
+}
+
+.footer-column {
+    .column(@columns/6);
+    .push(3)
+}
+
+.site-footer {
+    .column(@columns);
+    text-align: center;
+}
+
+@media (max-width: 1000px) {
+    .flash-wrap {
+        display: none;
+        img {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 850px) {
+
+    .main {
+        &.has-sidebar-left {
+            .column(@columns - (@columns/4));
+            .push(0);
+        }
+
+        &.has-sidebar-right {
+            .column(@columns - (@columns/4));
+            .push(0);
+        }
+
+        &.has-sidebar-left.has-sidebar-right {
+            .column(@columns);
+            .push(0);
+
+        }
+    }
+
+}
+
+@media (max-width: 600px) {
+    .inner-wrap {
+        max-width: 100%;
+        }
+    .sidebar {
+        display: none;
+    }
+    .footer-column {
+        .column(@columns);
+        .push(0)
+    }
+    .footer-column-1, .footer-column-3{
+        text-align: center !important;
+    }
+    .site-logo-text {
+        display: none;
+    }
+}

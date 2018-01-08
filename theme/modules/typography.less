@@ -1,0 +1,23 @@
+@import "typography-font-families.less";
+@import "typography-sizes.less";
+@import "typography-mixins.less";
+@import "typography-defaults.less";
+
+
+.wrap-all {
+    .font();
+    .typographyHeadings();
+    .typographyTextElements();
+    .typographyCodeElements();
+    .typographyListElements();
+    .typographyTableElements();
+    .typographyOtherElements();
+}
+
+html.hgrid {
+    .inner-wrap-main {
+        background-image: url(../img/horisontal-grid-24-inverted.png);
+
+
+    }
+}
